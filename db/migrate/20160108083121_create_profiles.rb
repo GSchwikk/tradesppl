@@ -7,6 +7,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :job_title
       t.string :phone_number
       t.string :contact_email
+      t.integer :hourly_rate
       t.text :description
       
       t.timestamps

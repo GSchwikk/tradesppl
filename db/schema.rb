@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 20160112124842) do
     t.datetime "updated_at"
   end
 
-  create_table "plans", force: true do |t|
-    t.string   "name"
-    t.decimal  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.string   "first_name"
@@ -35,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160112124842) do
     t.string   "job_title"
     t.string   "phone_number"
     t.string   "contact_email"
+    t.integer  "hourly_rate"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,6 +36,13 @@ ActiveRecord::Schema.define(version: 20160112124842) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160112124842) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "plan_id"
+    t.integer  "role_id"
     t.string   "stripe_customer_token"
   end
 
