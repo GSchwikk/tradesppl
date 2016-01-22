@@ -9,12 +9,13 @@
             <h3>Description</h3>
             <%= @user.profile.description %></div>
         
-        <%  if current_user.plan_id == 2 %>
+        <%#  if current_user.role_id == 2 %>
             <div class="well profile-block contact-info">
                 <h3>Contact Info</h3>
+                <!-- Need to add contact form -->
                 <%= @user.profile.phone_number %><br>
                 <%= @user.profile.contact_email %><br>
             </div>
-        <% end %>
+        <%# end %>
     </div>
 </div>

@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if params[:role]
         resource.role_id = params[:role]
         #Remove payment functionality temporarily
-        if resource.plan_id == 1
+        if resource.role_id == 1 || resource.role_id == 2
           resource.save_with_payment
         else
           resource.save

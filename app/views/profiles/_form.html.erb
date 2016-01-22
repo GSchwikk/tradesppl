@@ -13,7 +13,8 @@
     </div>
     <div class="form-group">
         <%= f.label :job_title %>
-        <%= f.select :job_title,['Developer','Entreprenuer','Investor'],{}, class: "form-control" %>
+        <%= f.select :job_title,['Plumber','Electrician','Painter'],{}, class: "form-control" %>
+        <!-- need to create full list of job titles -->
     </div>
     <div class="form-group">
         <%= f.label :phone_number %>
@@ -22,6 +23,10 @@
     <div class="form-group">
         <%= f.label :contact_email %>
         <%= f.text_field :contact_email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :hourly_rate %>
+        <%= f.text_field :hourly_rate, class: "form-control" %>
     </div>
     <div class="form-group">
         <%= f.label :description %>

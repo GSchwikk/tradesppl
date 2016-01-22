@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :only_current_user
+  before_action :not_homer
    
   def new
     # form where a user can fill out their own profile.
@@ -45,4 +46,12 @@ class ProfilesController < ApplicationController
       @user = User.find(params[:user_id])
       redirect_to(root_url) unless @user == current_user
     end
+
+    def not_homer
+      if current_user.role_id == 1
+        flash[:danger] = "Profiles are for TradesPersons and Contractors Only"
+        redirect_to(root_url)
+      end
+    end
+
 end
