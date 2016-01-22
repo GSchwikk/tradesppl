@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
     
     def home
-        @basic_plan = Plan.find(1)
-        @pro_plan = Plan.find(2)
+        @homer_role = Role.find(1)
+        @contractor_role = Role.find(2)
+        @trader_role = Role.find(3)
     end
     
     def about
