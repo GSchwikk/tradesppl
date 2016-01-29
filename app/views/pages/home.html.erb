@@ -2,55 +2,59 @@
     <h1>Welcome to TradesPpl</h1>
     <h3>A site connecting home improvers and contractors with workers and designers</h3>
 </div>
-<div class="row">
     
-    <% if user_signed_in? && current_user.role != 1 %>
-        <div class="col-md-6">
-            <div class="well">
-                <h2 class="text-center" >Your Profile </h2>
-                <% if current_user.profile %>
-                    <%= link_to "Edit your profile", edit_user_profile_path(current_user), class: "btn btn-default btn-lg btn-block" %>
-                    <%= link_to "View your profile", user_path(current_user), class: "btn btn-default btn-lg btn-block" %>
-                <% else %>
-                    <p>Create your profile to improve your searchability</p>
-                    <%= link_to "Create your profile", new_user_profile_path(current_user), class: "btn btn-default btn-lg btn-block" %>
-                <% end %>
-            </div>
-        </div>
-        
-        <div class="col-md-6">
-            <div class="well">
-                <h2 class="text-center" >The Community </h2>
-                <p>View all TradesPpl</p>
-                <%= link_to "View all TradePpl", users_path, class: "btn btn-default btn-lg btn-block" %>
-            </div>
+    <% if user_signed_in? %>
+        <div class="row">
+            <% if current_user.role_id == 1 %>
+                <div class="col-md-6 col-md-offset-3">
+            <% else %>
+                <div class="col-md-6">
+                    <div class="well">
+                        <h2 class="text-center" >Your Profile </h2>
+                        <% if current_user.profile %>
+                            <%= link_to "Edit your profile", edit_user_profile_path(current_user), class: "btn btn-default btn-lg btn-block" %>
+                            <%= link_to "View your profile", user_path(current_user), class: "btn btn-default btn-lg btn-block" %>
+                        <% else %>
+                            <p>Create your profile to improve your searchability</p>
+                            <%= link_to "Create your profile", new_user_profile_path(current_user), class: "btn btn-default btn-lg btn-block" %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="col-md-6">
+            <% end %>        
+                    <div class="well">
+                        <h2 class="text-center" >The Community </h2>
+                        <p>View all TradesPpl</p>
+                        <%= link_to "View all TradePpl", users_path, class: "btn btn-default btn-lg btn-block" %>
+                    </div>
+                </div>
         </div>
         
     <% else %>
-        <div class="col-md-4">
-            <div class="well">
-                <h2 class="text-center">Home <br> Membership</h2>
-                <h4> Sign up for <strong>free</strong> to search for TradesPpl</h4><br>
-                <%= link_to "Sign up as User", new_user_registration_path(role: @homer_role.id), class: "btn btn-primary btn-lg btn-block" %>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="well">
+                    <h2 class="text-center">Home <br> Membership</h2>
+                    <h4> Sign up for <strong>free</strong> to search for TradesPpl</h4><br>
+                    <%= link_to "Sign up as User", new_user_registration_path(role: @homer_role.id), class: "btn btn-primary btn-lg btn-block" %>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="well">
-                <h2 class="text-center">Contractor <br> Membership</h2>
-                <h4>Sign up as a Contractor to find work and workers</h4>
-                <%= link_to "Sign up as Contractor", new_user_registration_path(role: @contractor_role.id), class: "btn btn-success btn-lg btn-block" %>
+            <div class="col-md-4">
+                <div class="well">
+                    <h2 class="text-center">Contractor <br> Membership</h2>
+                    <h4>Sign up as a Contractor to find work and workers</h4>
+                    <%= link_to "Sign up as Contractor", new_user_registration_path(role: @contractor_role.id), class: "btn btn-success btn-lg btn-block" %>
+                </div>
             </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="well">
-                <h2 class="text-center">TradesPerson <br> Membership</h2>
-                <h4>Sign up as a TradesPerson and be found for work</h4>
-                <%= link_to "Sign up as TradesPerson", new_user_registration_path(role: @trader_role.id), class: "btn btn-success btn-lg btn-block" %>
+            
+            <div class="col-md-4">
+                <div class="well">
+                    <h2 class="text-center">TradesPerson <br> Membership</h2>
+                    <h4>Sign up as a TradesPerson and be found for work</h4>
+                    <%= link_to "Sign up as TradesPerson", new_user_registration_path(role: @trader_role.id), class: "btn btn-success btn-lg btn-block" %>
+                </div>
             </div>
-        </div>
-        
+        </div>      
     <% end %>
     
-</div>
