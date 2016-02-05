@@ -9,7 +9,7 @@ class Profile < ActiveRecord::Base
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
     
   def validate_categories
-    errors.add(:categories, "too many categories, select 3 maximum") if categories.size > 3
+    errors.add(:categories, "too many categories, select 3 maximum") if self.categories.size > 3
   end
 
 

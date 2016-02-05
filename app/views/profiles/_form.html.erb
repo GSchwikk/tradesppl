@@ -1,4 +1,6 @@
 <%= form_for @profile, url: user_profile_path, html: { multipart: true } do |f| %>
+
+    
     <div class="form-group">
         <%= f.label :first_name %>
         <%= f.text_field :first_name, class: "form-control" %>
@@ -12,7 +14,7 @@
         <%= f.file_field :avatar, class: "form-control" %>
     </div>
     <div class="checkbox-list">
-        <p><strong> Select 3 job categories only </strong></p>
+        <p><strong> Select 3 job skills only </strong></p>
         <%= collection_check_boxes(:profile, :category_ids, @categories, :id, :name) %>
     </div>
     <br>

@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @profile = @user.profile
+    @categories = Category.all
     
     if @profile.update_attributes(profile_params)
       flash[:success] = "Profile Updated!"
