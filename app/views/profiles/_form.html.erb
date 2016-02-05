@@ -12,9 +12,8 @@
         <%= f.file_field :avatar, class: "form-control" %>
     </div>
     <div class="form-group">
-        <%= f.label :job_title %>
-        <%= f.select :job_title,['Plumber','Electrician','Painter'],{}, class: "form-control" %>
-        <!-- need to create full list of job titles -->
+        <p> Select 3 categories only </p>
+        <%= collection_check_boxes(:profile, :category_ids, @categories, :id, :name) %>
     </div>
     <div class="form-group">
         <%= f.label :phone_number %>
