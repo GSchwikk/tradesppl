@@ -8,3 +8,14 @@
     background-color: #fcf8e3;
     border-color: #faebcc;
 }
+
+.checkbox-list input[type="checkbox"] {
+  display: inline-block;
+  width: 10%;
+}
+
+.checkbox-list input[type="checkbox"] + label {
+  display: inline-block;
+  margin-left: 1%;
+  width: 80%;
+}
