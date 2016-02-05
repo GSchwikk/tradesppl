@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
     # form where a user can fill out their own profile.
     @user = User.find( params[:user_id] )
     @profile = Profile.new
+    @categories = Category.all
   end
     
   def create
@@ -23,6 +24,7 @@ class ProfilesController < ApplicationController
   def edit
     @user = User.find( params[:user_id] )
     @profile = @user.profile
+    @categories = Category.all
   end
   
   def update
@@ -39,7 +41,7 @@ class ProfilesController < ApplicationController
     
   private 
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :hourly_rate, :description)
+      params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :hourly_rate, :description, :categories_ids => [])
     end
     
     def only_current_user
