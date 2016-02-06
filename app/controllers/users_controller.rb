@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     
     def show
         @user = User.find( params[:id] )  
+        @skill1 = @user.profile.categories[0]
+        @skill2 = @user.profile.categories[1]
+        @skill3 = @user.profile.categories[2]
     end
     
 end

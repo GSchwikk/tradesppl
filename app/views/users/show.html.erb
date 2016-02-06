@@ -7,17 +7,23 @@
 
         <div class= "well profile-block profile-description">
             <h3>Description</h3>
-            <%= @user.profile.description %></div>
+            <%= @user.profile.description %>
+        </div>
+        <div class= "well profile-block profile-skills">
             <h3>Skills</h3>
-<!--             add job categories here -->
-        
+                <ul class="list-unstyled">
+                    <li><span class="skill-icon"><%= skill_icon1 %></span> <%= @skill1.name %></li><br>
+                    <li><span class="skill-icon"><%= skill_icon2 %></span> <%= @skill2.name %></li><br>
+                    <li><span class="skill-icon"><%= skill_icon3 %></span> <%= @skill3.name %></li>
+                </ul>
+        </div>
         <%#  if current_user.role_id == 2 %>
-            <div class="well profile-block contact-info">
-                <h3>Contact Info</h3>
-                <!-- Need to add contact form -->
-                <%#= @user.profile.phone_number %><br>
-                <%#= @user.profile.contact_email %><br>
-            </div>
+        <div class="well profile-block contact-info">
+            <h3>Request</h3>
+            <!-- Need to add contact form -->
+            <%#= @user.profile.phone_number %><br>
+            <%#= @user.profile.contact_email %><br>
+        </div>
         <%# end %>
     </div>
 </div>
