@@ -27,3 +27,23 @@
         <%# end %>
     </div>
 </div>
+
+<div class ="row">
+    <div class = "col-md-3 text-center">
+        <%= link_to "Write Review", new_profile_review_path(@user.profile.id), class: "btn btn-default" %>
+    </div>
+</div>
+
+
+
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/homemakerbox2/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+
+</script>

@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   resources :users do 
     resource :profile
   end
+
+  resources :profiles, except: [:show, :index, :edit, :update, :destroy, :create, :new] do
+    # collection do
+    #   get 'search'
+    # end
+    resources :reviews, except: [:show, :index]
+  end
   
   resources :contacts
   resources :categories

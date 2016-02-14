@@ -18,7 +18,9 @@
                             <%= link_to u do %>
                                 <h2><%= u.profile.first_name%> <%= u.profile.last_name %></h2>
                             <% end %>
-                            <p><%#= u.profile.job_title %>
+                            <p><%= u.profile.categories[0].name %> |
+                                <%= u.profile.categories[1].name %> |
+                                <%= u.profile.categories[2].name %>
                             <% if u.role_id == 2 %>
                                 <span class="label label-danger">Contractor</span>
                             <% end %>
